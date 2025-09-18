@@ -2,7 +2,7 @@
 
 ## Prereqs
 - .NET 8 SDK
-- Node.js 18+ (recommended 20+)
+- Node.js 18+ 
 - PostgreSQL (local)
 
 ## Quick start

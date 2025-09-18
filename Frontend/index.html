@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Collaborative Presentation (Diagnostic)</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <div id="app"><noscript>Enable JavaScript to view this app.</noscript></div>
+    <script>
+      (function(){
+        function show(msg){
+          var pre = document.createElement('pre');
+          pre.textContent = msg;
+          pre.style.whiteSpace = 'pre-wrap';
+          pre.style.font = '14px/1.4 monospace';
+          pre.style.background = '#fff5f5';
+          pre.style.color = '#611a15';
+          pre.style.border = '1px solid #fcc';
+          pre.style.padding = '12px';
+          pre.style.margin = '0';
+          pre.style.position = 'fixed';
+          pre.style.inset = '0';
+          pre.style.overflow = 'auto';
+          pre.style.zIndex = '99999';
+          document.body.appendChild(pre);
+        }
+        window.addEventListener('error', function(e){
+          show('Error: ' + e.message + '\n' + (e.filename||'') + ':' + (e.lineno||'') + '\n' + ((e.error&&e.error.stack)||''));
+        });
+        window.addEventListener('unhandledrejection', function(e){
+          var r = e.reason || {};
+          show('Unhandled Rejection: ' + (r.message || String(e.reason)) + '\n' + (r.stack || ''));
+        });
+      })();
+    </script>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
